@@ -1,0 +1,26 @@
+.input {
+    padding: 10px;
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+    border:none;
+    border-bottom: 1px solid whitesmoke;
+    background: none;
+    color: white;
+    padding: 0 10px;
+    outline: none;
+  }
+  .buttonAdd {
+    width:100px;
+    color: rgb(37, 202, 202);
+    height: 35px;
+    font-size: 15px;
+    background: none;
+    border: 1px solid whitesmoke;
+    margin-left: 10px;
+  }
+  .buttonAdd:hover {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px rgb(136, 8, 221), 0 0 35px rgb(173, 11, 236), 0 0 40px rgb(248, 7, 55), 0 0 50px rgb(220, 207, 20), 0 0 75px crimson;
+  }

@@ -1,0 +1,71 @@
+.bottom-panel{
+    background-color: azure;
+    padding: 10px;
+    width: 512px;
+    height: 25px;
+    border:1px solid whitesmoke;
+    background: none;
+    color: white;
+    padding: 0 10px;
+    outline: none;
+  }
+  .Completed {
+    margin-right: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: rgb(37, 202, 202);
+  }
+  .Completed:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px rgb(136, 8, 221), 0 0 35px rgb(173, 11, 236), 0 0 40px rgb(248, 7, 55), 0 0 50px rgb(220, 207, 20), 0 0 75px crimson;
+  }
+  .Active {
+    margin-right: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: rgb(37, 202, 202);
+  }
+  .Active:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px rgb(136, 8, 221), 0 0 35px rgb(173, 11, 236), 0 0 40px rgb(248, 7, 55), 0 0 50px rgb(220, 207, 20), 0 0 75px crimson;
+  }
+  .All {
+    margin-right: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: rgb(37, 202, 202);
+  }
+  .All:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px rgb(136, 8, 221), 0 0 35px rgb(173, 11, 236), 0 0 40px rgb(248, 7, 55), 0 0 50px rgb(220, 207, 20), 0 0 75px crimson;
+  }
+  .ClearTask {
+    margin-right: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: rgb(37, 202, 202);
+  }
+  .ClearTask:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px rgb(136, 8, 221), 0 0 35px rgb(173, 11, 236), 0 0 40px rgb(248, 7, 55), 0 0 50px rgb(220, 207, 20), 0 0 75px crimson;
+  }
+  .Clear {
+    margin-right: 10px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: rgb(37, 202, 202);
+  }
+  .Clear:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px rgb(136, 8, 221), 0 0 35px rgb(173, 11, 236), 0 0 40px rgb(248, 7, 55), 0 0 50px rgb(220, 207, 20), 0 0 75px crimson;
+  }
