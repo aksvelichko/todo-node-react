@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './TaskDiv.css'
 
 function TasksDiv({ item, deleteItem, changeComplete, changeValue }) {
-    const [data, setData] = React.useState(null);
-
+ 
+    const [editMode, setEditMode] = useState(false)
+    const [title, setValueInput] = useState(item.value)
+    // console.log(`item`, item)
     let spanClassName = ''
     let completeClassName
     if (item.isComplete) {
@@ -13,9 +15,6 @@ function TasksDiv({ item, deleteItem, changeComplete, changeValue }) {
         spanClassName = ''
         completeClassName = ''
     }
-
-    const [editMode, setEditMode] = useState(false)
-    const [title, setValueInput] = useState(item.value)
 
     const makeInput = () => {
         if (editMode) {
@@ -30,12 +29,6 @@ function TasksDiv({ item, deleteItem, changeComplete, changeValue }) {
     const setInputValueFunc = (event) => {
         setValueInput(event.target.value)
     }
-
-    useEffect(() => {
-        fetch("/api")
-            .then((res) => res.json())
-            .then((data) => setData(data.message));
-    }, []);
 
     return (
         <div className='task-div' style={{ backgroundColor: item.color }}>
@@ -53,7 +46,7 @@ function TasksDiv({ item, deleteItem, changeComplete, changeValue }) {
             )}
             {editMode === false && (
                 <span className={'text-div ' + spanClassName} onDoubleClick={makeInput}>
-                    {!data ? "Loading..." : data}
+                    {!item.title ? "Loading..." : item.title}
                 </span>
             )}
             <button

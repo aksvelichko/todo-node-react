@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-// const path = require('path');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -16,7 +15,6 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 db.mongoose
     .connect(db.uri, {
@@ -32,12 +30,8 @@ db.mongoose
     });
 
 app.get("/api", (req, res) => {
-    res.json({ message: ` on ` });
+    res.json({ message: ` on  ${db}` });
 });
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-// });
 
 require("./routes/TodoTask.routes")(app);
 

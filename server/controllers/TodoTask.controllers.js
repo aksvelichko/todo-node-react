@@ -13,7 +13,8 @@ exports.create = (req, res) => {
     // Create a TodoTask
     const todoTask = new TodoTask({
         title: req.body.title,
-        description: req.body.description,
+        isComplete: req.body.isComplete,
+        color: req.body.color,
         published: req.body.published ? req.body.published : false
     });
 

@@ -8,26 +8,24 @@ import { randomColor } from 'randomcolor'
 import Draggable from 'react-draggable'
 
 function App() {
-  // const [data, setData] = React.useState(null);
-
-  // useEffect(() => {
-  //   fetch("/api")
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data.message));
-  // }, []);
 
   const [itemTask, setItemTask] = useState('')
-  const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem('items')) || []
-  )
-
+ 
   useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(items))
-  }, [items])
+    fetch('/api/todotasks', {
+      method: 'GET'
+    })
+      .then((res) =>
+        res.json()
+      )
+      .then((todoItems) => setItems([...todoItems]))
+  }, [])
+
+  const [items, setItems] = useState([]);
 
   const [taskIsComplete, setTaskIsComplete] = useState('All')
 
-  const [filteredItems, setFilteredItems] = useState([...items])
+  const [filteredItems, setFilteredItems] = useState(items)
 
   useEffect(() => {
     if (taskIsComplete === 'Completed') {
@@ -49,14 +47,23 @@ function App() {
     } else {
       const newItem = {
         id: uuidv4(),
-        value: itemTask,
+        title: itemTask,
         isComplete: false,
         color: randomColor({
           luminosity: 'light'
         }),
       }
+
+      fetch('/api/todotasks', {
+        method: 'POST', headers: {
+          'Content-Type': 'application/json'
+        }, body: JSON.stringify(newItem)
+      })
+        .then(res => res.json())
+
       setItems((items) => [...items, newItem])
       setItemTask('')
+
     }
   }
 
@@ -67,6 +74,12 @@ function App() {
   const deleteItem = (id) => {
     const allTask = items.filter((event) => id !== event.id)
     setItems(allTask)
+
+    fetch('/api/todotasks/id', {
+      method: 'DELETE'
+    })
+      .then(res => res.json())
+      // .then((items) => ((event) => id !== event.id)
   }
 
   const changeComplete = (id, event) => {
@@ -120,11 +133,6 @@ function App() {
       <h1>
         <span>T</span><span>O</span><span>D</span><span>O</span>
       </h1>
-      <header className="App-header">
-        {/* <p>
-          {!data ? "Loading..." : data}
-        </p> */}
-      </header>
       <div className='bottom-panel'>
         <BottomPanel
           ClearAllTasks={ClearAllTasks}
@@ -143,7 +151,7 @@ function App() {
       </div>
 
       <div className='task-divs'>
-        {filteredItems.map((item, index) => (
+        {filteredItems?.map((item, index) => (
           <Draggable
             key={index}
             defaultPosition={item.defaultPos}
